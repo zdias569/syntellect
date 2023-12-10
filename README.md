@@ -1,0 +1,2 @@
+# syntellect
+Tokov Zaurbek Stanislavovich
