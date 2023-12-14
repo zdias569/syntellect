@@ -10,39 +10,40 @@ import "./App.css";
 const autocompleteViewModel1 = new AutocompleteControlViewModel(3);
 const autocompleteViewModel2 = new AutocompleteControlViewModel(10);
 
-const App = observer(() => {
-    const textControlViewModel1: TextControlViewModel = new TextControlViewModel(2, {
-        rightButtons: [
-            {
-                text: "Clear",
-                onClick: () => textControlViewModel1.setInputValue(""),
-            },
-            {
-                text: "Hello",
-                onClick: () => textControlViewModel1.setInputValue("Hello world!"),
-            },
-        ],
-    });
-    const textControlViewModel2: TextControlViewModel = new TextControlViewModel(1, {
-        leftButtons: [
-            {
-                text: "Alert",
-                onClick: () => alert(textControlViewModel2.inputValue),
-            },
-        ],
-        rightButtons: [
-            {
-                text: "Check",
-                onClick: () => {
-                    const num = Number(textControlViewModel2.inputValue);
-                    if (!isNaN(num)) {
-                        alert(num);
-                    }
-                },
-            },
-        ],
-      });
+const textControlViewModel1: TextControlViewModel = new TextControlViewModel(2, {
+    rightButtons: [
+        {
+            text: "Clear",
+            onClick: () => textControlViewModel1.setInputValue(""),
+        },
+        {
+            text: "Hello",
+            onClick: () => textControlViewModel1.setInputValue("Hello world!"),
+        },
+    ],
+});
 
+const textControlViewModel2: TextControlViewModel = new TextControlViewModel(1, {
+    leftButtons: [
+        {
+            text: "Alert",
+            onClick: () => alert(textControlViewModel2.inputValue),
+        },
+    ],
+    rightButtons: [
+        {
+            text: "Check",
+            onClick: () => {
+                const num = Number(textControlViewModel2.inputValue);
+                if (!isNaN(num)) {
+                    alert(num);
+                }
+            },
+        },
+    ],
+});
+
+const App = observer(() => {
     return (
         <div className='app-container'>
             <h2>
