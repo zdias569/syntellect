@@ -10,6 +10,11 @@ import "./App.css";
 const autocompleteViewModel1 = new AutocompleteControlViewModel(3);
 const autocompleteViewModel2 = new AutocompleteControlViewModel(10);
 
+// 1. почему обьектные модели для текстового контрола создаются в самом компоненте и следовательно могут пересоздаваться?
+// Объектные модели для текстового контрола не должны создаваться в самом компоненте,
+// так как это может привести к их пересозданию при каждом рендере компонента.
+// Не заметил когда отправлял...
+
 const textControlViewModel1: TextControlViewModel = new TextControlViewModel(2, {
     rightButtons: [
         {

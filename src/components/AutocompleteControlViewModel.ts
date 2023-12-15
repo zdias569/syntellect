@@ -11,6 +11,9 @@ export default class AutocompleteControlViewModel {
     inputValue = "";
     showSuggestions = false;
     suggestions: Suggestion[] = [];
+    // 3. в атокомплите при вводе мы делаем запрос на каждое изменение поля, хотя можно не делать.
+    // Написал класс DebounceTimer в одноименном файле.
+    // Его можно переиспользовать в других компонентах, если потребуется.
     private debounceTimer = new DebounceTimer(500);
 
     constructor(private maxSuggestions: number) {
