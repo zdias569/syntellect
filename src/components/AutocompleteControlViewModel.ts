@@ -1,6 +1,7 @@
 import { makeObservable, observable, action, runInAction } from "mobx";
 import { getCountryByName, CountryInfo } from "../api/apiService";
 import DebounceTimer from "./DebounceTimer";
+import countries from "../api/countries.json";
 
 interface Suggestion extends CountryInfo {
     index: number;
@@ -25,10 +26,10 @@ export default class AutocompleteControlViewModel {
     async setInputValue(value: string) {
         this.inputValue = value;
         this.showSuggestions = false;
-      
+
         if (value.length > 0) {
             this.debounceTimer.debounce(async () => {
-                const suggestions = await getCountryByName(value);
+                const suggestions = await getCountryByName(value, [...countries]);
 
                 runInAction(() => {
                     this.suggestions = suggestions
